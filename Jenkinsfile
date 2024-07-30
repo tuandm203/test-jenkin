@@ -9,6 +9,7 @@ pipeline {
 
         stage ('Build stage') {
             steps {
+                sh 'docker version'
                 withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
                     sh 'docker build -t tuan1102003/web-jenkins-demo .'
                     sh 'docker push tuan1102003/web-jenkins-demo'
